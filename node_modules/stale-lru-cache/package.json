@@ -1,0 +1,35 @@
+{
+  "name": "stale-lru-cache",
+  "description": "Resilient and performant in-memory cache for node.js",
+  "version": "5.1.1",
+  "author": {
+    "name": "Thomas Heymann",
+    "email": "thom@totheskies.net"
+  },
+  "keywords": [
+    "lru",
+    "cache",
+    "stale-while-revalidate",
+    "max-age",
+    "cache-control"
+  ],
+  "scripts": {
+    "test": "tap test --gc --coverage"
+  },
+  "main": "lib/stale-lru-cache.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cyberthom/stale-lru-cache"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "yallist": "^2.0.0"
+  },
+  "devDependencies": {
+    "tap": "^8.0.1",
+    "weak": "^1.0.1"
+  },
+  "engines": {
+    "node": ">=0.12.6"
+  }
+}

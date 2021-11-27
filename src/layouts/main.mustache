@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="{{ commonData.lang }}" data-theme="jc-dark">
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ title }}</title>
+
+    <meta name="description" content="{{ description }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {{#molino.isProd}}
+    {{! Parcel does not seem to look at the base tag, so `baseHref` is still }}
+    {{! used throughout the template. In prod, all assets and links to files }}
+    {{! are relative to `baseHref`, hence why we need this base tag. }}
+    <base href="{{{ molino.baseHref }}}" />
+    {{/molino.isProd}}
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{{ molino.baseHref }}}assets/css/common/index.css"
+    />
+
+    <script src="{{{ molino.baseHref }}}assets/js/common/theme.js"></script>
+
+    {{#molino.isProd}}
+    <script
+      src="{{{ molino.baseHref }}}assets/js/common/index.js"
+      defer
+    ></script>
+    {{/molino.isProd}}
+    {{^molino.isProd}}
+    <script
+      type="module"
+      src="{{{ molino.baseHref }}}assets/js/common/index.js"
+    ></script>
+    {{/molino.isProd}}
+
+    {{! Resources that are likely to be needed soon }}
+    <link
+      rel="prefetch"
+      href="{{{ molino.baseHref }}}assets/css/highlight-js/index.css"
+      as="style"
+    />
+
+    <link
+      type="application/atom+xml"
+      rel="alternate"
+      href="{{{ commonData.siteUrl }}}/blog/feed.xml"
+      title="Tech notes by Javier Cejudo"
+    />
+
+    {{#styles}}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{{ molino.baseHref }}}assets/css/{{{ . }}}"
+    />
+    {{/styles}}
+
+    {{#scripts}}
+    {{#molino.isProd}}
+    <script src="{{{ molino.baseHref }}}assets/js/{{{ . }}}" defer></script>
+    {{/molino.isProd}}
+    {{^molino.isProd}}
+    <script
+      type="module"
+      src="{{{ molino.baseHref }}}assets/js/{{{ . }}}"
+    ></script>
+    {{/molino.isProd}}
+    {{/scripts}}
+  </head>
+
+  <body class="{{ pageClass }}">
+    <a href="{{{ pagePath }}}#skip-nav" class="skip-nav">Skip to content</a>
+
+    <div class="page">
+      <header>
+        <div class="container">
+          <nav>
+            <ul>
+              <li>
+                <a
+                  href="{{{ molino.baseHref }}}index.html"
+                  class="nav-home {{#pageIsHome}}is-active{{/pageIsHome}}"
+                >
+                  Home
+                </a>
+              </li>
+            </ul>
+            <a
+              class="logo-link"
+              href="{{{ molino.baseHref }}}index.html"
+              title="Home"
+            >
+              <div class="logo">
+                <span class="logo-j"></span>
+                <span class="logo-j2"></span>
+                <span class="logo-c"></span>
+              </div>
+            </a>
+            <ul>
+              <li>
+                <a
+                  href="{{{ molino.baseHref }}}menu/index.html"
+                  class="nav-menu"
+                >
+                  Menu
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <div class="content" id="skip-nav">{{{ content }}}</div>
+
+      <footer>
+        <p>
+          {{#editLinks}}
+          <span class="edit-link"
+            ><a href="{{{linkHref}}}" rel="noreferrer noopener">{{
+              linkText
+            }}</a></span
+          >
+          {{/editLinks}}
+        </p>
+        <div class="jc-theme-switcher jc-theme-switcher-cloak">
+          <button>Switch theme</button>
+        </div>
+        <p>© javiercejudo.com 2013-{{ commonData.currentYear }}</p>
+      </footer>
+    </div>
+  </body>
+</html>

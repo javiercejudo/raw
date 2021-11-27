@@ -1,0 +1,9 @@
+<div class="container">
+  <h2>{{ title }} by {{ authorName }}</h2>
+  {{#hasPosts}}
+  {{{postsList}}}
+  {{/hasPosts}}
+  {{^hasPosts}}
+  No blog posts
+  {{/hasPosts}}
+</div>

@@ -1,0 +1,48 @@
+html[data-theme='jc-light'] header {
+  --jc-header-divider-colour: #ddd;
+  --jc-header-link-colour-active: #ddd;
+}
+
+header {
+  --jc-header-divider-colour: #222;
+  --jc-header-link-colour-active: #222;
+
+  background-color: var(--jc-bg-colour);
+  border-bottom: 2px solid var(--jc-header-divider-colour);
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+header nav .logo-link {
+  margin: calc(5rem / 16);
+  padding: calc(10rem / 16);
+}
+
+header nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+header nav a {
+  text-decoration: none;
+  margin: calc(5rem / 16);
+  padding: calc(10rem / 16);
+  display: inline-block;
+  position: relative;
+  border-radius: calc(5rem / 16);
+  transition: background-color 200ms ease;
+}
+
+header nav ul a.is-active,
+header nav ul a:hover,
+header nav ul a:focus {
+  background-color: var(--jc-header-link-colour-active);
+}

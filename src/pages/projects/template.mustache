@@ -1,0 +1,15 @@
+<div class="container">
+  {{#hasProjects}}
+  <h2>Projects</h2>
+  <ul>
+    {{#projects}}
+    <li>
+      <a href="{{{ molino.baseHref }}}projects/{{{ path }}}">{{ name }}</a>
+    </li>
+    {{/projects}}
+  </ul>
+  {{/hasProjects}}
+  {{^hasProjects}}
+  No projects
+  {{/hasProjects}}
+</div>
