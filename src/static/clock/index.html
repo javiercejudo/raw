@@ -34,6 +34,11 @@
       title="Tech notes by Javier Cejudo"
     />
 
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/css/clock/index.css"
+    />
 
     <script
       type="module"
@@ -88,13 +93,13 @@
       </header>
 
       <div class="content" id="skip-nav">
-        <div class="container" id="clock-content">
+        <div class="container {{cloakClass}}" id="clock-content">
   <p>Time: {{ time }}</p>
 </div>
 
         <template>{{={[{ }]}=}}</template>
         <template id="time-template">
-          <div class="container" id="clock-content">
+          <div class="container {{cloakClass}}" id="clock-content">
   <p>Time: {{ time }}</p>
 </div>
 
@@ -114,7 +119,7 @@
         <div class="jc-theme-switcher jc-theme-switcher-cloak">
           <button>Switch theme</button>
         </div>
-        <p>© javiercejudo.com 2013-2021</p>
+        <p>© javiercejudo.com 2013-2023</p>
       </footer>
     </div>
   </body>

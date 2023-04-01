@@ -1,3 +1,3 @@
-import Mustache from './mustache.mjs';
+import Mustache from '../../../../../node_modules/mustache/mustache.mjs';
 
 window.Mustache = Mustache;
